@@ -1,0 +1,12 @@
+state,abbrev,stores,sales_share,sales_b_2026ytd,note
+California,CA,93,0.190,4.45,Store count from public store locators (ScrapeHero / Whole Foods store list). Sales share tilts coastal AUV above store count.
+New York,NY,36,0.082,1.92,Higher AUV than store count
+Massachusetts,MA,33,0.074,1.73,Higher AUV than store count
+Florida,FL,39,0.064,1.50,Modeled
+Texas,TX,36,0.060,1.40,Modeled
+New Jersey,NJ,26,0.056,1.31,Modeled
+Illinois,IL,27,0.054,1.26,Modeled
+Colorado,CO,23,0.040,0.94,Modeled
+Virginia,VA,16,0.028,0.66,Modeled
+Pennsylvania,PA,16,0.028,0.66,Modeled
+All other states,Other,192,0.324,7.58,Remainder of ~550 stores

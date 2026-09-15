@@ -1,0 +1,10 @@
+year,prime_share,nonprime_share,instore_b,pickup_b,delivery_b,pickup_delivery_share,note
+2018,0.32,0.68,16.01,0.66,0.54,0.07,Prime share and channel split are modeled; dollars scale from 10-K store sales
+2019,0.35,0.65,15.81,0.76,0.62,0.08,Modeled
+2020,0.44,0.56,13.96,1.25,1.02,0.14,COVID step-up in digital
+2021,0.47,0.53,14.52,1.41,1.15,0.15,Modeled
+2022,0.49,0.51,15.93,1.57,1.29,0.16,Modeled
+2023,0.50,0.50,16.62,1.87,1.53,0.17,Modeled
+2024,0.51,0.49,17.51,2.04,1.67,0.175,Modeled
+2025,0.52,0.48,18.50,2.23,1.83,0.18,Modeled
+2026,0.54,0.46,18.72,2.57,2.11,0.20,2026 YTD annualized; pickup is 55% of digital
