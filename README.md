@@ -6,7 +6,7 @@ I pulled Amazon’s public 10-K Physical stores line (2018–2025) and asked thr
 2. What is 365 doing as the house brand?
 3. What did Amazon Prime change about who shops the store, and how orders leave it?
 
-**Ritu Neupane** · New York
+**Ritu Neupane**
 
 This is my own compilation. Not affiliated with Amazon or Whole Foods Market. Not a stock pick.
 
@@ -26,7 +26,7 @@ Category mix, Prime share, state sales, and the basket are modeled from public s
 
 ![Overview](screenshots/overview.png)
 
-**365** — house brand vs peers
+**365** — house brand
 
 ![365](screenshots/365.png)
 
@@ -46,9 +46,3 @@ data/SOURCES.md            filing vs modeled
 analysis/notes.md          takeaways
 screenshots/               overview, 365, Prime
 ```
-
-Open the CSVs in Excel if you want to check the math.
-
-## Skills
-
-Category analytics · 10-K → operating view · private brand / price architecture · Prime and digital mix · dashboard storytelling
