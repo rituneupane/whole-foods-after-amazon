@@ -1,0 +1,57 @@
+check,value,should_equal,result
+2018 category shares = 100%,1.0,1.0,PASS
+2018 category $ = store sales ($B),17.22,17.22,PASS
+2019 YoY % recomputed,-0.174,-0.2,PASS
+2019 category shares = 100%,1.0,1.0,PASS
+2019 category $ = store sales ($B),17.19,17.19,PASS
+2020 YoY % recomputed,-5.585,-5.6,PASS
+2020 category shares = 100%,1.0,1.0,PASS
+2020 category $ = store sales ($B),16.229,16.23,PASS
+2021 YoY % recomputed,5.237,5.2,PASS
+2021 category shares = 100%,1.0,1.0,PASS
+2021 category $ = store sales ($B),17.08,17.08,PASS
+2022 YoY % recomputed,11.007,11.0,PASS
+2022 category shares = 100%,1.0,1.0,PASS
+2022 category $ = store sales ($B),18.96,18.96,PASS
+2023 YoY % recomputed,5.643,5.6,PASS
+2023 category shares = 100%,1.0,1.0,PASS
+2023 category $ = store sales ($B),20.029,20.03,PASS
+2024 YoY % recomputed,5.941,5.9,PASS
+2024 category shares = 100%,1.0,1.0,PASS
+2024 category $ = store sales ($B),21.219,21.22,PASS
+2025 YoY % recomputed,6.315,6.3,PASS
+2025 category shares = 100%,1.0,1.0,PASS
+2025 category $ = store sales ($B),22.56,22.56,PASS
+2026 YoY % recomputed,4.078,4.1,PASS
+2026 category shares = 100%,1.0,1.0,PASS
+2026 category $ = store sales ($B),23.48,23.48,PASS
+2018 in-store = 10-K Physical stores ($B),17.22,17.22,PASS
+2018 in-store + pickup + delivery = store-fulfilled ($B),18.42,18.42,PASS
+2018 Prime + non-Prime = 100%,1.0,1.0,PASS
+2019 in-store = 10-K Physical stores ($B),17.19,17.19,PASS
+2019 in-store + pickup + delivery = store-fulfilled ($B),18.57,18.57,PASS
+2019 Prime + non-Prime = 100%,1.0,1.0,PASS
+2020 in-store = 10-K Physical stores ($B),16.23,16.23,PASS
+2020 in-store + pickup + delivery = store-fulfilled ($B),18.5,18.5,PASS
+2020 Prime + non-Prime = 100%,1.0,1.0,PASS
+2021 in-store = 10-K Physical stores ($B),17.08,17.08,PASS
+2021 in-store + pickup + delivery = store-fulfilled ($B),19.64,19.64,PASS
+2021 Prime + non-Prime = 100%,1.0,1.0,PASS
+2022 in-store = 10-K Physical stores ($B),18.96,18.96,PASS
+2022 in-store + pickup + delivery = store-fulfilled ($B),21.82,21.82,PASS
+2022 Prime + non-Prime = 100%,1.0,1.0,PASS
+2023 in-store = 10-K Physical stores ($B),20.03,20.03,PASS
+2023 in-store + pickup + delivery = store-fulfilled ($B),23.43,23.43,PASS
+2023 Prime + non-Prime = 100%,1.0,1.0,PASS
+2024 in-store = 10-K Physical stores ($B),21.22,21.22,PASS
+2024 in-store + pickup + delivery = store-fulfilled ($B),24.93,24.93,PASS
+2024 Prime + non-Prime = 100%,1.0,1.0,PASS
+2025 in-store = 10-K Physical stores ($B),22.56,22.56,PASS
+2025 in-store + pickup + delivery = store-fulfilled ($B),26.62,26.62,PASS
+2025 Prime + non-Prime = 100%,1.0,1.0,PASS
+2026 in-store = 10-K Physical stores ($B),23.48,23.48,PASS
+2026 in-store + pickup + delivery = store-fulfilled ($B),28.17,28.17,PASS
+2026 Prime + non-Prime = 100%,1.0,1.0,PASS
+State store counts = 2026 store count,550.0,550.0,PASS
+State sales shares = 100%,1.0,1.0,PASS
+State sales = 2026E store sales ($B),23.49,23.48,PASS
