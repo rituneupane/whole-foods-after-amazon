@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Whole Foods after Amazon</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data.js?v=20261029b"></script>
+<script src="company.js?v=20261029a"></script>
+<style>
+:root{--g:#00674B;--g2:#004D38;--gt:#D5E8E0;--o:#FF9900;--ot:#FFD08A;--ink:#1F2A24;--mut:#5E6B64;--bg:#FFFFFF;--card:#FFFFFF;--line:#E4E1D8}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+header{background:#fff;border-bottom:3px solid var(--g)}
+.hd{max-width:1160px;margin:0 auto;padding:22px 24px 16px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.eyebrow{color:var(--g);font-size:11px;letter-spacing:.25em;font-weight:700;text-transform:uppercase}
+h1{margin:6px 0 4px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,3.4vw,32px);line-height:1.15;color:var(--g2)}.sub{margin:0;color:var(--mut);font-size:13px}
+.by{font-size:11.5px;color:var(--mut);text-align:right}
+.wrap{max-width:1160px;margin:0 auto;padding:16px 24px 26px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--g);border-color:var(--g);color:#fff}
+select{font-size:13px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:#fff}
+.card{background:var(--card);border:1px solid #E6E6E6;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:14px;min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}.kpis .card{margin-bottom:0}
+.kpi .l{font-size:12px;color:var(--mut)}.kpi .v{font-family:Georgia,serif;font-size:28px;color:var(--g2);margin:4px 0 2px}.kpi .v.o{color:#C46F00}.kpi .s{font-size:11.5px;color:var(--mut)}
+h2{font-size:15px;margin:0 0 3px}.note{font-size:12px;color:var(--mut);margin:0 0 10px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cv{position:relative;width:100%;height:280px}.tbl{width:100%;overflow-x:auto}.cv.tall{height:300px}@media(max-width:480px){.cv.st{height:320px}}
+ul.take{margin:6px 0 0;padding-left:18px;font-size:13.5px;line-height:1.6}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+section{display:none}section.on{display:block}
+footer{max-width:1160px;margin:0 auto;padding:0 24px 24px;font-size:11.5px;color:var(--mut);line-height:1.5;text-align:center}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.row{grid-template-columns:1fr}.by{text-align:left}}
+@media(max-width:480px){.hd,.wrap,footer{padding-left:16px;padding-right:16px}.card{padding:14px}.kpis{gap:10px}.kpi .v{font-size:23px}.cv{height:260px}.tabs{gap:6px}.tabs button{padding:8px 12px;font-size:12.5px}table{font-size:11.5px}th,td{padding:6px 3px}}
+footer a{color:var(--mut)}footer p{margin:0 0 6px}.fsrc{padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:8px!important}
+.gkf{font-size:13px;line-height:1.45;margin:10px 0 0;padding-top:8px;border-top:1px solid var(--line)}.gkf b{color:var(--g);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-right:8px}
+.kpi .l{font-weight:600}
+@media(max-width:480px){.tabs{flex-wrap:nowrap;gap:5px}.tabs button{padding:7px 11px;font-size:12px;white-space:nowrap}}
+:root{--co-main:#00674B;--co-tint:#EEF5F1;--co-mut:#5E6B64;--co-ink:#1F2A24;--co-line:#E4E1D8}
+.co-top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-bottom:16px}.co-top>.card{margin:0}
+.co-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}.co-row>.card{margin:0}
+.co-bg{font-size:14.5px;line-height:1.5;margin:6px 0 14px}
+.co-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.co-facts>div{background:var(--co-tint);border-radius:10px;padding:10px 12px;min-width:0}
+.co-facts span{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--co-mut);font-weight:700}
+.co-facts b{display:block;font-size:15px;margin-top:3px;line-height:1.3}
+.co-facts i{display:block;font-style:normal;font-size:11.5px;color:var(--co-mut);margin-top:2px}
+ol.co-tl{list-style:none;margin:8px 0 0;padding:0 0 0 2px;position:relative}
+ol.co-tl li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px;align-items:baseline;padding:0 0 11px;position:relative}
+ol.co-tl li::before{content:"";position:absolute;left:47px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--co-main)}
+ol.co-tl li::after{content:"";position:absolute;left:50.5px;top:16px;bottom:-2px;width:1px;background:var(--co-line)}
+ol.co-tl li:last-child::after{display:none}ol.co-tl li:last-child{padding-bottom:0}
+ol.co-tl span{font-weight:800;font-size:14px;color:var(--co-main)}
+ol.co-tl p{margin:0;font-size:13.5px;line-height:1.4;padding-left:6px}
+.co-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.co-fin{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.co-two h4{margin:2px 0 6px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--co-mut)}
+.co-cv{position:relative;height:190px;width:100%}
+.co-cv canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.co-sk{font-size:12.5px;color:var(--co-mut);margin:6px 0 0}.co-sk b{color:var(--co-ink)}.co-sk b.up{color:#1E7B34}.co-sk b.dn{color:#B4232F}
+.co-kf{font-size:13.5px;line-height:1.45;margin:12px 0 0;padding-top:10px;border-top:1px solid var(--co-line)}
+.co-kf b{display:inline-block;margin-right:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--co-main)}
+.co-ev{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+.co-ev>div{border-left:3px solid var(--co-main);background:var(--co-tint);border-radius:0 10px 10px 0;padding:10px 12px;min-width:0}
+.co-ev span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--co-mut);font-weight:700}
+.co-ev b{display:block;font-size:14.5px;margin:3px 0 3px;line-height:1.3}.co-ev p{margin:0;font-size:13px;line-height:1.45}
+#coRoot>.card{margin-bottom:12px}
+.co-h4{margin:2px 0 6px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--co-mut)}
+.co-src{font-size:11px;color:var(--co-mut);margin:0 0 14px;line-height:1.5}
+@media(max-width:900px){.co-top,.co-row{grid-template-columns:1fr}.co-ev{grid-template-columns:1fr}}
+@media(max-width:600px){.co-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.co-two{grid-template-columns:1fr;gap:12px}.co-cv{height:170px}}
+@media(max-width:480px){.co-bg{font-size:14px}.co-facts b{font-size:14px}ol.co-tl li{grid-template-columns:50px minmax(0,1fr)}ol.co-tl li::before{left:40px}ol.co-tl li::after{left:43.5px}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+  <div><div class="eyebrow">Whole Foods Market</div><h1>Whole Foods after Amazon</h1><p class="sub">Store sales grew 31% from 2018 to 2025 while 365 and Prime grew their share.</p></div>
+</div></header>
+<div class="wrap">
+  <div class="bar">
+    <div class="tabs" id="tabs"><button data-t="overview" class="on">Overview</button><button data-t="company">Company</button><button data-t="365">365</button><button data-t="prime">Prime</button></div>
+    <label style="font-size:11px;letter-spacing:.1em;color:var(--mut)">YEAR <select id="yr"></select></label>
+  </div>
+
+  <section id="tab-overview" class="on">
+    <div class="kpis" id="kOv"></div>
+    <div class="card"><h2>Store Sales Grew 31% from 2018 to 2025</h2><p class="note">Store sales ($B), Amazon Physical stores line</p><div class="cv"><canvas id="cSales"></canvas></div><p class="gkf" id="kfSales"></p></div>
+    <div class="row">
+      <div class="card"><h2>Fresh Is the Largest Department</h2><p class="note">Sales by department, <span class="yl"></span> ($B)</p><div class="cv"><canvas id="cCat"></canvas></div><p class="gkf" id="kfCat"></p></div>
+      <div class="card"><h2>California Leads Store Sales</h2><p class="note">Top 10 states, 2026E ($B)</p><div class="cv st"><canvas id="cState"></canvas></div><p class="gkf" id="kfState"></p></div>
+    </div>
+  </section>
+
+  <section id="tab-company"><div id="coRoot"></div></section>
+
+  <section id="tab-365">
+    <div class="kpis" id="k365"></div>
+    <div class="row">
+      <div class="card"><h2>365 Offers Everyday Value</h2><p class="note">Same 12 items at Whole Foods shelf prices ($)</p><div class="cv"><canvas id="cBasket"></canvas></div><p class="gkf" id="kfBasket"></p></div>
+      <div class="card"><h2>365 Keeps Gaining Share</h2><p class="note">365 share of grocery sales (%)</p><div class="cv"><canvas id="c365"></canvas></div><p class="gkf" id="kf365"></p></div>
+    </div>
+  </section>
+
+  <section id="tab-prime">
+    <div class="kpis" id="kPr"></div>
+    <div class="row">
+      <div class="card"><h2>Prime Members Are Over Half of Sales</h2><p class="note">Prime member share of store sales (%)</p><div class="cv"><canvas id="cPrime"></canvas></div><p class="gkf" id="kfPrime"></p></div>
+      <div class="card"><h2>Pickup and Delivery Add to Store Sales</h2><p class="note">Store fulfilled sales ($B)</p><div class="cv"><canvas id="cChan"></canvas></div><p class="gkf" id="kfChan"></p></div>
+    </div>
+  </section>
+
+</div>
+<footer><p class="fsrc">Sources: Amazon, Kroger and Sprouts Form 10-K filings (SEC); Amazon Q3 2026 results; Amazon and Whole Foods Market news; Grocery Dive; ICSC; Numerator; Yahoo Finance share prices to Oct 29, 2026. Department, state, 365, Prime and pickup and delivery figures are modeled from public data.</p><p>Independent case study, not affiliated with Whole Foods Market or Amazon.</p></footer>
+<script>
+const G="#00674B",G2="#004D38",GT="#D5E8E0",O="#FF9900",OT="#FFD08A",MUT="#5E6B64",GR="#B9BDB5";
+Chart.defaults.font.family='"Segoe UI","Helvetica Neue",Arial,sans-serif';Chart.defaults.color=MUT;Chart.defaults.maintainAspectRatio=false;Chart.defaults.scale.ticks.maxRotation=0;Chart.defaults.scale.ticks.autoSkipPadding=8;
+const grid={color:"#EEECE6"}, lab=r=>r.year===2026?"2026E":String(r.year);
+const yrSel=document.getElementById("yr");ANNUAL.slice().reverse().forEach(r=>yrSel.add(new Option(lab(r),r.year)));
+const ppd=(a,b)=>{const d=(a-b);return (d>=0?"up ":"down ")+Math.abs(d).toFixed(1)+" percentage points vs last year"};
+const kf=(id,t)=>document.getElementById(id).innerHTML="<b>Key finding</b>"+t;
+const charts={};
+function bar(id,labels,data,colors,fmt,max){charts[id]&&charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type:"bar",data:{labels,datasets:[{data,backgroundColor:colors,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.x)}}},scales:{x:{min:0,max,grid,ticks:{callback:fmt,maxTicksLimit:window.innerWidth<480?5:9}},y:{grid:{display:false}}}}});}
+function render(){
+ const y=+yrSel.value, r=ANNUAL.find(a=>a.year===y), p=ANNUAL.find(a=>a.year===y-1), ch=CHANNEL.find(c=>c.year===y), chp=CHANNEL.find(c=>c.year===y-1);
+ const pdPct=ch.pickup_delivery_share*100;
+ document.querySelectorAll(".yl").forEach(e=>e.textContent=lab(r));
+ const k=(l,v,s)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`;
+ const yy=v=>(v>=0?"+":"")+v.toFixed(1)+"% vs last year";
+ document.getElementById("kOv").innerHTML=k("Store sales, "+lab(r),"$"+r.store_sales_b.toFixed(1)+"B",p?yy(r.yoy_pct):"Base year")
+  +k("365 share of grocery",r.mix_365_grocery_pct.toFixed(1)+"%",p?ppd(r.mix_365_grocery_pct,p.mix_365_grocery_pct):"Base year")
+  +k("Prime member share",Math.round(r.prime_share*100)+"%",p?ppd(r.prime_share*100,p.prime_share*100):"Base year")
+  +k("Stores",r.stores.toFixed(0),p?"+"+(r.stores-p.stores).toFixed(0)+" vs last year":"Base year");
+ const cats=CATEGORY.filter(c=>c.year===y).sort((a,b)=>b.sales_b-a.sales_b);
+ bar("cCat",cats.map(c=>c.category),cats.map(c=>c.sales_b),cats.map((c,i)=>i===0?G:GR),v=>"$"+(+v).toFixed(1)+"B",7);
+ kf("kfCat",`${cats[0].category} was the largest department in ${lab(r)} at $${cats[0].sales_b.toFixed(1)}B, ${Math.round(cats[0].share*100)}% of store sales.`);
+ const b365=BASKET.find(b=>b.banner==="365").basket_usd, bNat=BASKET.find(b=>b.banner==="WF national").basket_usd;
+ document.getElementById("k365").innerHTML=k("365 share of grocery",r.mix_365_grocery_pct.toFixed(1)+"%",p?ppd(r.mix_365_grocery_pct,p.mix_365_grocery_pct):"Base year")
+  +k("365 share of store sales",r.mix_365_all_sales_pct.toFixed(1)+"%",p?ppd(r.mix_365_all_sales_pct,p.mix_365_all_sales_pct):"Base year")
+  +k("365 basket","$"+Math.round(b365),Math.round((1-b365/bNat)*100)+"% below national brands")
+  +k("National brand basket","$"+Math.round(bNat),"Same 12 items");
+ document.getElementById("kPr").innerHTML=k("Prime member share",Math.round(r.prime_share*100)+"%",p?ppd(r.prime_share*100,p.prime_share*100):"Base year")
+  +k("Pickup and delivery share",pdPct.toFixed(1)+"%",chp?ppd(pdPct,chp.pickup_delivery_share*100):"Base year")
+  +k("Store fulfilled sales","$"+ch.store_fulfilled_b.toFixed(1)+"B",chp?yy((ch.store_fulfilled_b/chp.store_fulfilled_b-1)*100):"Base year")
+  +k("Households shopping both","17M","Amazon and Whole Foods, 12 months to Apr 2026");
+}
+new Chart(cSales,{type:"line",data:{labels:ANNUAL.map(lab),datasets:[{data:ANNUAL.map(r=>r.store_sales_b),borderColor:G,backgroundColor:"rgba(0,103,75,.12)",fill:true,tension:0,pointRadius:4,pointBackgroundColor:ANNUAL.map(r=>r.year===2026?"#fff":G),pointBorderColor:G,borderWidth:2.5,segment:{borderDash:c=>c.p1DataIndex===ANNUAL.length-1?[6,4]:undefined}}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{min:0,max:25,ticks:{stepSize:5,callback:v=>"$"+v+"B"},grid}}}});
+const topStates=STATES.filter(s=>s.abbrev!=="Other");
+new Chart(cState,{type:"bar",data:{labels:topStates.map(s=>s.abbrev+" · "+s.stores+" stores"),datasets:[{data:topStates.map(s=>s.sales_b_2026e),backgroundColor:G,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{min:0,max:5,grid,ticks:{callback:v=>"$"+v+"B"}},y:{grid:{display:false},ticks:{autoSkip:false,font:{size:11}}}}}});
+const BK=[["365",BASKET.find(b=>b.banner==="365").basket_usd,G],["National brands",BASKET.find(b=>b.banner==="WF national").basket_usd,GR]];
+new Chart(cBasket,{type:"bar",data:{labels:BK.map(b=>b[0]),datasets:[{data:BK.map(b=>b[1]),backgroundColor:BK.map(b=>b[2]),borderRadius:6,barPercentage:.6}]},options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>"$"+c.parsed.x.toFixed(2)}}},scales:{x:{min:0,max:80,ticks:{stepSize:20,callback:v=>"$"+v},grid},y:{grid:{display:false},ticks:{font:{weight:"600"}}}}}});
+new Chart(c365,{type:"line",data:{labels:ANNUAL.map(lab),datasets:[{data:ANNUAL.map(r=>r.mix_365_grocery_pct),borderColor:G,backgroundColor:"rgba(0,103,75,.12)",fill:true,tension:0,pointRadius:3,borderWidth:2.5}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{min:0,max:30,ticks:{stepSize:5,callback:v=>v+"%"},grid}}}});
+new Chart(cPrime,{type:"line",data:{labels:CHANNEL.map(lab),datasets:[{data:CHANNEL.map(c=>c.prime_share*100),borderColor:O,backgroundColor:"rgba(255,153,0,.15)",fill:true,tension:0,pointRadius:3,borderWidth:2.5}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{min:0,max:60,ticks:{stepSize:10,callback:v=>v+"%"},grid}}}});
+new Chart(cChan,{type:"bar",data:{labels:CHANNEL.map(lab),datasets:[{label:"In store",data:CHANNEL.map(c=>c.instore_b),backgroundColor:G},{label:"Pickup",data:CHANNEL.map(c=>c.pickup_b),backgroundColor:O},{label:"Delivery",data:CHANNEL.map(c=>c.delivery_b),backgroundColor:OT}]},options:{plugins:{legend:{position:"bottom",labels:{boxWidth:12}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,min:0,max:30,ticks:{stepSize:5,callback:v=>"$"+v+"B"},grid}}}});
+const A25=ANNUAL.find(a=>a.year===2025),A26=ANNUAL.find(a=>a.year===2026),A18=ANNUAL[0],C26=CHANNEL[CHANNEL.length-1],CA=STATES.find(s=>s.abbrev==="CA");
+kf("kfSales",`Store sales reached $${A25.store_sales_b.toFixed(1)}B in 2025, up ${A25.yoy_pct.toFixed(1)}%, and are on pace for about $${A26.store_sales_b.toFixed(1)}B in 2026 based on the first nine months.`);
+kf("kfState",`California is about ${Math.round(CA.sales_share*100)}% of store sales, from ${CA.stores} stores.`);
+kf("kfBasket",`The 365 basket costs $${Math.round(BK[0][1])}, about ${Math.round((1-BK[0][1]/BK[1][1])*100)}% less than national brands, giving shoppers an everyday value option inside the store.`);
+kf("kf365",`365 grew from ${A18.mix_365_grocery_pct.toFixed(0)}% of grocery sales in 2018 to ${A26.mix_365_grocery_pct.toFixed(1)}% in 2026E.`);
+kf("kfPrime",`Prime member share rose from ${Math.round(A18.prime_share*100)}% in 2018 to ${Math.round(C26.prime_share*100)}% in 2026E.`);
+kf("kfChan",`Pickup and delivery add about $${(C26.pickup_b+C26.delivery_b).toFixed(1)}B on top of 2026E store sales, ${(C26.pickup_delivery_share*100).toFixed(1)}% of what stores fill.`);
+yrSel.onchange=render;render();
+function show(t){if(!document.getElementById("tab-"+t))t="overview";document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==="tab-"+t));document.getElementById("yr").parentNode.style.visibility=t==="company"?"hidden":"";if(t==="company"){CO_BUILD();CO_RENDER();}document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));document.querySelectorAll("#tab-"+t+" canvas").forEach(c=>{const ch=Chart.getChart(c);if(ch){ch.resize();ch.update("none");}});}
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{show(b.dataset.t);history.replaceState(null,"","#"+b.dataset.t)});
+show(location.hash?location.hash.slice(1):"overview");
+</script>
+</body>
+</html>
